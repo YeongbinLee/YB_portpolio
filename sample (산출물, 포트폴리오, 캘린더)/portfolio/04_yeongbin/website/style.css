@@ -160,6 +160,10 @@ a {
     background-color: #ffffff;
 }
 
+.hamburger.open span {
+    background-color: #ffffff;
+}
+
 .hamburger.open span:nth-child(1) {
     transform: translateY(8px) rotate(45deg);
 }
@@ -241,6 +245,10 @@ a {
 .static-text {
     margin-right: 0.3em;
     color: var(--text-secondary);
+}
+
+.typewriter-line {
+    display: inline;
 }
 
 .typewriter-text {
@@ -458,6 +466,43 @@ a {
     object-position: center;
 }
 
+/* Closing CTA */
+.cta-section {
+    text-align: center;
+    padding: 8rem 5vw;
+    max-width: 1200px;
+    margin: 0 auto;
+}
+
+.cta-message {
+    font-family: var(--font-heading);
+    font-size: 2.4rem;
+    font-weight: 600;
+    letter-spacing: -0.04em;
+    line-height: 1.3;
+    margin-bottom: 2rem;
+    color: var(--text-primary);
+}
+
+.cta-link {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.5rem;
+    font-family: var(--font-heading);
+    font-size: 1rem;
+    font-weight: 500;
+    letter-spacing: 0.02em;
+    color: var(--text-secondary);
+    border-bottom: 1px solid var(--text-secondary);
+    padding-bottom: 4px;
+    transition: color 0.3s ease, border-color 0.3s ease;
+}
+
+.cta-link:hover {
+    color: var(--text-primary);
+    border-color: var(--text-primary);
+}
+
 /* Footer */
 .footer {
     text-align: center;
@@ -466,6 +511,11 @@ a {
     font-family: var(--font-heading);
     font-size: 0.875rem;
     color: var(--text-secondary);
+}
+
+/* Mobile Contact FAB */
+.mobile-contact-btn {
+    display: none;
 }
 
 /* Animations */
@@ -495,6 +545,14 @@ a {
 }
 @media (max-width: 768px) {
     /* Header & Nav */
+    .header {
+        padding: 1.5rem 5vw;
+    }
+
+    .header.scrolled {
+        padding: 1rem 5vw;
+    }
+
     .hamburger {
         display: flex;
     }
@@ -528,25 +586,67 @@ a {
     }
 
     /* Hero Section */
+    .hero {
+        height: auto;
+        min-height: 100vh;
+        overflow: visible;
+    }
+
+    .hero-container {
+        display: flex;
+        flex-direction: column;
+        min-height: calc(100vh - 80px);
+    }
+
+    .hero-grid {
+        flex: 1;
+        height: auto;
+    }
+
     .hero-slogan {
         font-size: 2rem;
-        height: 3rem;
-        line-height: 3rem;
+        min-height: 5.6rem;
+        line-height: 2.8rem;
         flex-direction: column;
+        align-items: center;
+        overflow: visible;
     }
-    
+
+    .typewriter-line {
+        display: inline-flex;
+        align-items: center;
+        min-height: 2.8rem;
+    }
+
+    .static-text {
+        margin-right: 0;
+    }
+
     .huge-title {
+        position: relative;
+        bottom: auto;
+        left: auto;
+        right: auto;
         font-size: 20vw;
-        bottom: 2rem;
-        line-height: 1;
+        line-height: 0.85;
+        letter-spacing: -0.06em;
         white-space: nowrap;
+        text-align: left;
+        margin: 0 -5vw;
+        color: rgba(0, 0, 0, 0.03);
     }
-    
+
     .hero-contact {
-        bottom: -2rem;
-        left: 5vw;
-        right: 5vw;
-        text-align: center;
+        position: relative;
+        bottom: auto;
+        left: auto;
+        right: auto;
+        text-align: left;
+        font-size: 0.8rem;
+        line-height: 1.8;
+        letter-spacing: -0.01em;
+        padding: 1rem 0 0;
+        margin-bottom: 4rem;
     }
 
     .grid-lines-bg { display: none; }
@@ -566,7 +666,46 @@ a {
         gap: 3rem;
     }
 
+    .profile-col {
+        justify-content: flex-start;
+    }
+
     .profile-photo {
-        width: 100%;
+        width: 60%;
+    }
+
+    .cta-section {
+        padding: 5rem 5vw;
+    }
+
+    .cta-message {
+        font-size: 1.6rem;
+    }
+
+    .cta-link {
+        font-size: 0.85rem;
+    }
+
+    /* Mobile Contact FAB */
+    .mobile-contact-btn {
+        display: flex;
+        position: fixed;
+        bottom: 2rem;
+        right: 1.5rem;
+        width: 48px;
+        height: 48px;
+        border-radius: 50%;
+        background: var(--text-primary);
+        color: #ffffff;
+        align-items: center;
+        justify-content: center;
+        z-index: 999;
+        box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+        transition: transform 0.3s ease, box-shadow 0.3s ease;
+    }
+
+    .mobile-contact-btn:hover {
+        transform: scale(1.1);
+        box-shadow: 0 6px 20px rgba(0, 0, 0, 0.25);
     }
 }
