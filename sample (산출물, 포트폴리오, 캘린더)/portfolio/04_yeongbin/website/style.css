@@ -137,6 +137,41 @@ a {
     padding-bottom: 2px;
 }
 
+/* Hamburger */
+.hamburger {
+    display: none;
+    flex-direction: column;
+    justify-content: space-between;
+    width: 24px;
+    height: 18px;
+    cursor: pointer;
+    z-index: 1001;
+}
+
+.hamburger span {
+    display: block;
+    height: 2px;
+    width: 100%;
+    background-color: var(--text-primary);
+    transition: all 0.3s ease;
+}
+
+.header.scrolled .hamburger span {
+    background-color: #ffffff;
+}
+
+.hamburger.open span:nth-child(1) {
+    transform: translateY(8px) rotate(45deg);
+}
+
+.hamburger.open span:nth-child(2) {
+    opacity: 0;
+}
+
+.hamburger.open span:nth-child(3) {
+    transform: translateY(-8px) rotate(-45deg);
+}
+
 /* Hero Section */
 .hero {
     position: relative;
@@ -459,19 +494,79 @@ a {
 
 }
 @media (max-width: 768px) {
-    .main-nav { display: none; }
+    /* Header & Nav */
+    .hamburger {
+        display: flex;
+    }
+    
     .header-right { display: none; }
-    .hero-grid { grid-template-columns: 1fr; grid-template-rows: auto; }
+    
+    .main-nav {
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        position: fixed;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100vh;
+        background: rgba(0, 0, 0, 0.95);
+        backdrop-filter: blur(10px);
+        gap: 3rem;
+        transform: translateY(-100%);
+        transition: transform 0.4s cubic-bezier(0.8, 0, 0.2, 1);
+        z-index: 1000;
+    }
+
+    .main-nav.active {
+        transform: translateY(0);
+    }
+
+    .main-nav a {
+        font-size: 1.5rem;
+        color: #ffffff;
+    }
+
+    /* Hero Section */
+    .hero-slogan {
+        font-size: 2rem;
+        height: 3rem;
+        line-height: 3rem;
+        flex-direction: column;
+    }
+    
+    .huge-title {
+        font-size: 20vw;
+        bottom: 2rem;
+        line-height: 1;
+        white-space: nowrap;
+    }
+    
+    .hero-contact {
+        bottom: -2rem;
+        left: 5vw;
+        right: 5vw;
+        text-align: center;
+    }
+
     .grid-lines-bg { display: none; }
     .side-ruler { display: none; }
     
+    /* Body Layout */
     .list-row {
         flex-direction: column;
         align-items: flex-start;
+        padding-bottom: 2rem;
     }
     .row-line { display: none; }
     .row-right { text-align: left; margin-top: 0.5rem; }
+    
     .three-col-grid {
         grid-template-columns: 1fr;
+        gap: 3rem;
+    }
+
+    .profile-photo {
+        width: 100%;
     }
 }

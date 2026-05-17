@@ -1,4 +1,26 @@
 document.addEventListener('DOMContentLoaded', () => {
+    // Hamburger Menu Toggle
+    const hamburger = document.getElementById('hamburger');
+    const mainNav = document.getElementById('main-nav');
+    
+    if (hamburger && mainNav) {
+        hamburger.addEventListener('click', () => {
+            hamburger.classList.toggle('open');
+            mainNav.classList.toggle('active');
+            // Prevent scrolling when menu is open
+            document.body.style.overflow = mainNav.classList.contains('active') ? 'hidden' : '';
+        });
+
+        // Close menu when clicking a link
+        mainNav.querySelectorAll('a').forEach(link => {
+            link.addEventListener('click', () => {
+                hamburger.classList.remove('open');
+                mainNav.classList.remove('active');
+                document.body.style.overflow = '';
+            });
+        });
+    }
+
     // Header Scroll Effect
     const header = document.getElementById('header');
     
