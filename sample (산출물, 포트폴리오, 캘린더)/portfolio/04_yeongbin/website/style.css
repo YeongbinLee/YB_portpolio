@@ -128,6 +128,40 @@ a {
     letter-spacing: 0.1em;
 }
 
+.portfolio-btn {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.4rem;
+    padding: 0.45rem 1rem;
+    border: 1px solid var(--text-primary);
+    border-radius: 2px;
+    transition: background 0.25s ease, color 0.25s ease, border-color 0.25s ease;
+    cursor: pointer;
+}
+
+.portfolio-btn:hover {
+    background: var(--text-primary);
+    color: #ffffff;
+}
+
+.portfolio-btn:hover svg {
+    stroke: #ffffff;
+}
+
+.header.scrolled .portfolio-btn {
+    border-color: #ffffff;
+    color: #ffffff;
+}
+
+.header.scrolled .portfolio-btn:hover {
+    background: #ffffff;
+    color: #111111;
+}
+
+.header.scrolled .portfolio-btn:hover svg {
+    stroke: #111111;
+}
+
 .cta-btn {
     font-family: var(--font-heading);
     font-size: 0.75rem;
