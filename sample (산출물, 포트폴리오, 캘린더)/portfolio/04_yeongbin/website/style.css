@@ -518,6 +518,31 @@ a {
     display: none;
 }
 
+/* Magic Text Section */
+.magic-text-section {
+    max-width: 900px;
+    margin: 0 auto;
+    padding: 12rem 5vw 10rem;
+}
+
+.magic-text {
+    display: flex;
+    flex-wrap: wrap;
+    line-height: 1.8;
+}
+
+.magic-text .word {
+    position: relative;
+    margin-right: 0.35em;
+    font-family: var(--font-body);
+    font-size: 1.6rem;
+    font-weight: 700;
+    letter-spacing: -0.02em;
+    color: var(--text-primary);
+    opacity: 0.08;
+    transition: opacity 0.35s ease;
+}
+
 /* Animations */
 .fade-in {
     opacity: 0;

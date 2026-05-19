@@ -48,6 +48,39 @@ document.addEventListener('DOMContentLoaded', () => {
         });
     });
 
+    // Magic Text - Scroll Reveal
+    const magicEl = document.getElementById('magic-text');
+    if (magicEl) {
+        const rawText = magicEl.textContent.trim();
+        magicEl.textContent = '';
+        rawText.split(/\s+/).forEach(w => {
+            const span = document.createElement('span');
+            span.className = 'word';
+            span.textContent = w;
+            magicEl.appendChild(span);
+        });
+
+        const wordSpans = magicEl.querySelectorAll('.word');
+        const totalWords = wordSpans.length;
+
+        function updateMagicText() {
+            const rect = magicEl.getBoundingClientRect();
+            const startY = window.innerHeight * 0.9;
+            const endY = window.innerHeight * 0.25;
+            const progress = Math.min(Math.max((startY - rect.top) / (startY - endY), 0), 1);
+
+            wordSpans.forEach((span, i) => {
+                const wordStart = i / totalWords;
+                const wordEnd = wordStart + 1 / totalWords;
+                const wordProgress = Math.min(Math.max((progress - wordStart) / (wordEnd - wordStart), 0), 1);
+                span.style.opacity = 0.08 + wordProgress * 0.92;
+            });
+        }
+
+        window.addEventListener('scroll', updateMagicText, { passive: true });
+        updateMagicText();
+    }
+
     // Intersection Observer for Fade-in Animations
     const observerOptions = {
         root: null,
