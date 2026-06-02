@@ -324,8 +324,16 @@ a {
     overflow: hidden;
 }
 
+/* ── 연락처 임시 숨김 (아래 블록 제거하면 전부 복원) ── */
+.cta-btn,
+.cta-section,
+.mobile-contact-btn,
 .hero-contact {
-    position: absolute;
+    display: none !important;
+}
+/* ── 연락처 임시 숨김 끝 ── */
+
+.hero-contact {
     bottom: 3vw;
     right: 5vw;
     text-align: right;
